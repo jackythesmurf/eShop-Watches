@@ -1,0 +1,41 @@
+.container {
+	text-decoration: none;
+	background-color: rgb(255, 255, 255);
+
+	&__list {
+		text-decoration: none;
+
+		&__text {
+			font-size: 1em;
+			font-weight: 600;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: center;
+			color: rgb(0, 73, 118);
+			&__name {
+				text-decoration: none;
+			}
+		}
+
+		&__image {
+			width: 300px;
+			height: 400px;
+			object-fit: cover;
+			border-radius: 10px;
+			transition: all 0.3s ease-in-out;
+		}
+		&__contimage {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+	}
+}
+
+.navbar {
+	text-decoration: none;
+}
+

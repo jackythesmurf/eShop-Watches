@@ -1,17 +1,10 @@
 import React from "react";
-import {
-	BrowserRouter,
-	Routes,
-	Route,
-	NavLink,
-	Outlet,
-	useParams,
-} from "react-router-dom";
-import { useEffect, useState } from "react";
+import styles from "./LargeModel.module.scss";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 import Variants from "./Variants/Variants.jsx";
-import FetchWatchData from "../../../FetchWatchData/FetchWatchData.jsx";
 
-const LargeModel = ({ watchSortedData,  }) => {
+const LargeModel = ({ watchSortedData }) => {
 	const [loading, setLoading] = useState(false);
 	const { style, model } = useParams();
 	let matchingWatch;
@@ -21,7 +14,7 @@ const LargeModel = ({ watchSortedData,  }) => {
 			return watch;
 		}
 	})[matchingWatch];
-	
+
 	return (
 		<div>
 			{loading ? (

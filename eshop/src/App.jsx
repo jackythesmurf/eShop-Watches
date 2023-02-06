@@ -17,16 +17,13 @@ import ExploreCard from "../components/Explore/ExploreCard/ExploreCard.jsx";
 import ExploreList from "../components/Explore/ExploreList/ExploreList.jsx";
 import Favourites from "../components/Favourites/Favourites.jsx";
 import Cart from "../components/Cart/Cart.jsx";
-import FetchWatchData from "../components/FetchWatchData/FetchWatchData.jsx";
+
 import LargeModel from "../components/Explore/ExploreCard/LargeModel/LargeModel.jsx";
 
 import db from "./firebase-config.js";
 import { doc, getDocs, collection } from "firebase/firestore";
 
-function App() {
-	const [watchSortedData, setWatchSortedData] = useState({});
-	const [loading, setLoading] = useState(true);
-
+const fetchWatchData = (setWatchSortedData, setLoading) => {
 	useEffect(() => {
 		const getWatchData = async () => {
 			const watchCollection = collection(db, "watch");
@@ -47,11 +44,18 @@ function App() {
 			});
 			setWatchSortedData(watchSortedData);
 			console.log(watchSortedData);
-			
+
 			setLoading(false);
 		};
 		getWatchData();
 	}, []);
+};
+
+function App() {
+	const [watchSortedData, setWatchSortedData] = useState({});
+	const [loading, setLoading] = useState(true);
+	fetchWatchData(setWatchSortedData, setLoading);
+
 	return (
 		<BrowserRouter>
 			<NavBar />
@@ -60,25 +64,19 @@ function App() {
 				<div>loading...</div>
 			) : (
 				<Routes>
-					<Route path="/explore" element={<ExplorePage />}>
-						<Route
-							path="/explore/:style"
-							element={
-								<ExploreList
-									watchSortedData={watchSortedData}
-								/>
-							}
-						/>
-					</Route>
+					<Route path="/explore" element={<ExplorePage />}></Route>
+					<Route
+						path="/explore/:style"
+						element={
+							<ExploreList watchSortedData={watchSortedData} />
+						}
+					/>
 					<Route path="/favourites" element={<Favourites />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route
 						path="/explore/:style/:model"
 						element={
-							<LargeModel
-								
-								watchSortedData={watchSortedData}
-							/>
+							<LargeModel watchSortedData={watchSortedData} />
 						}
 					/>
 				</Routes>

@@ -3,6 +3,7 @@ import ExploreCard from "../ExploreCard/ExploreCard.jsx";
 import { useState, useEffect } from "react";
 import FetchWatchData from "../../FetchWatchData/FetchWatchData.jsx";
 import { useParams } from "react-router-dom";
+import styles from "./ExploreList.module.scss";
 
 const ExploreList = ({watchSortedData}) => {
 	const [loading, isLoading] = useState(false);
@@ -10,19 +11,19 @@ const ExploreList = ({watchSortedData}) => {
 	const { style } = useParams();
 
 	
-	
 
-	useEffect(() => {
-		// console.log(watchData);
-	}, []);
 	
 
 	return (
-		<div>
+		<div className={styles.container}>
+			<div className={styles[style]}>
+				<p>{style.toLocaleUpperCase()}</p>
+			</div>
 			{loading ? (
 				<div>loading...</div>
 			) : (
-				<div>
+
+				<div className={styles.container__card}>
 					{watchSortedData[style].map((watch) => {
 						return (
 							<ExploreCard
