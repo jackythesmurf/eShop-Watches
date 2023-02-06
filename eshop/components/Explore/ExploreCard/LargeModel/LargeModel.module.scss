@@ -1,0 +1,37 @@
+.container {
+    padding-top: 100px;
+	display: flex;
+    //center the details
+    justify-content: center;
+    align-items: center;
+    //center the image
+
+	&__details {
+        
+	}
+    
+}
+@media (max-width:1100px) {
+	.container {
+		&__details {
+			border-style:solid;
+            width: 300px;
+		}
+		&__display {
+            background-color: black;
+            &__img{
+
+                width: 100px;
+            }
+			
+		}
+	}
+}
+
+
+.img{
+    // make image reponsive
+    width: 100%;
+    height: auto;
+    
+}

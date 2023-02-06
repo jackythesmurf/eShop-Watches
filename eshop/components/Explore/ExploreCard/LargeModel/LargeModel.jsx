@@ -5,7 +5,6 @@ import { useState } from "react";
 import Variants from "./Variants/Variants.jsx";
 
 const LargeModel = ({ watchSortedData }) => {
-	const [loading, setLoading] = useState(false);
 	const { style, model } = useParams();
 	let matchingWatch;
 	const largeWatchDetails = watchSortedData[style].map((watch, index) => {
@@ -16,31 +15,25 @@ const LargeModel = ({ watchSortedData }) => {
 	})[matchingWatch];
 
 	return (
-		<div>
-			{loading ? (
-				<div>loading...</div>
-			) : (
+		<div className={styles.container}>
+			<div className={style.container__display}>
+				<img height="600" className={style.img} src={largeWatchDetails.imgURL} alt="" />
+			</div>
+			<div className={styles.container__details}>
+				<h1>{largeWatchDetails.Name}</h1>
+				<p>{largeWatchDetails.Model}</p>
+				<p>{largeWatchDetails.Price}</p>
+				<button>Add to Cart</button>
+				<p>{largeWatchDetails.Dimension}</p>
+				<p>{largeWatchDetails.Movement}</p>
+				<p>{largeWatchDetails["Dial Colour"]}</p>
 				<div>
-					<div>
-						<img src={largeWatchDetails.imgURL} alt="" />
-					</div>
-					<div>
-						<h1>{largeWatchDetails.Name}</h1>
-						<p>{largeWatchDetails.Model}</p>
-						<p>{largeWatchDetails.Price}</p>
-						<button>Add to Cart</button>
-						<p>{largeWatchDetails.Dimension}</p>
-						<p>{largeWatchDetails.Movement}</p>
-						<p>{largeWatchDetails["Dial Colour"]}</p>
-						<div>
-							<Variants
-								largeWatchDetails={largeWatchDetails}
-								watchSortedData={watchSortedData}
-							/>
-						</div>
-					</div>
+					<Variants
+						largeWatchDetails={largeWatchDetails}
+						watchSortedData={watchSortedData}
+					/>
 				</div>
-			)}
+			</div>
 		</div>
 	);
 };
