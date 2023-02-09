@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
+import './App.css';
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -19,7 +19,7 @@ import Favourites from "../components/Favourites/Favourites.jsx";
 import Cart from "../components/Cart/Cart.jsx";
 
 import LargeModel from "../components/Explore/ExploreCard/LargeModel/LargeModel.jsx";
-
+import CarouselFadeExample from "../components/LandingPage/CarouselFadeExample.jsx";
 import db from "./firebase-config.js";
 import { doc, getDocs, collection } from "firebase/firestore";
 
@@ -79,6 +79,8 @@ function App() {
 							<LargeModel watchSortedData={watchSortedData} />
 						}
 					/>
+					<Route path="/" element={< CarouselFadeExample />} />
+
 				</Routes>
 			)}
 		</BrowserRouter>
