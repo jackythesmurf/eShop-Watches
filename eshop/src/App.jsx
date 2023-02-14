@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
-import './App.css';
+import "./App.css";
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -20,42 +20,19 @@ import Cart from "../components/Cart/Cart.jsx";
 
 import LargeModel from "../components/Explore/ExploreCard/LargeModel/LargeModel.jsx";
 import CarouselFadeExample from "../components/LandingPage/CarouselFadeExample.jsx";
-import db from "./firebase-config.js";
+import db from "./services/firebase-config.js";
 import { doc, getDocs, collection } from "firebase/firestore";
-
-const fetchWatchData = (setWatchSortedData, setLoading) => {
-	useEffect(() => {
-		const getWatchData = async () => {
-			const watchCollection = collection(db, "watch");
-			const watchData = await getDocs(watchCollection);
-			let watchSortedData = {
-				divers: [],
-				dress: [],
-				aviation: [],
-			};
-			watchData.forEach((doc) => {
-				if (doc.data().Style === "Divers") {
-					watchSortedData.divers.push(doc.data());
-				} else if (doc.data().Style === "Dress") {
-					watchSortedData.dress.push(doc.data());
-				} else if (doc.data().Style === "Aviation") {
-					watchSortedData.aviation.push(doc.data());
-				}
-			});
-			setWatchSortedData(watchSortedData);
-			console.log(watchSortedData);
-
-			setLoading(false);
-		};
-		getWatchData();
-	}, []);
-};
+import fetchWatchData from "./services/fetchWatch.js";
+import fetchCart from "./services/fetchCart.js"
 
 function App() {
 	const [watchSortedData, setWatchSortedData] = useState({});
 	const [loading, setLoading] = useState(true);
-	fetchWatchData(setWatchSortedData, setLoading);
-
+	const [cart, setCart] = useState([])
+	if (loading){
+		fetchCart(setCart)
+		fetchWatchData(setWatchSortedData, setLoading)
+	}
 	return (
 		<BrowserRouter>
 			<NavBar />
@@ -72,15 +49,14 @@ function App() {
 						}
 					/>
 					<Route path="/favourites" element={<Favourites />} />
-					<Route path="/cart" element={<Cart />} />
+					<Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>} />
 					<Route
 						path="/explore/:style/:model"
 						element={
-							<LargeModel watchSortedData={watchSortedData} />
+							<LargeModel watchSortedData={watchSortedData} cart={cart} setCart={setCart} />
 						}
 					/>
-					<Route path="/" element={< CarouselFadeExample />} />
-
+					<Route path="/" element={<CarouselFadeExample />} />
 				</Routes>
 			)}
 		</BrowserRouter>

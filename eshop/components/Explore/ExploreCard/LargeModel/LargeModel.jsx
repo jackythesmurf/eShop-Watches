@@ -3,8 +3,9 @@ import styles from "./LargeModel.module.scss";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Variants from "./Variants/Variants.jsx";
+import addToCart from "../../../../src/services/addToCart.js"
 
-const LargeModel = ({ watchSortedData }) => {
+const LargeModel = ({ watchSortedData, cart, setCart }) => {
 	const { style, model } = useParams();
 	let matchingWatch;
 	const largeWatchDetails = watchSortedData[style].map((watch, index) => {
@@ -13,6 +14,10 @@ const LargeModel = ({ watchSortedData }) => {
 			return watch;
 		}
 	})[matchingWatch];
+
+	const handleClick = () => {
+		addToCart(largeWatchDetails, cart, setCart)
+	}
 
 	return (
 		<div className={styles.container}>
@@ -23,7 +28,7 @@ const LargeModel = ({ watchSortedData }) => {
 				<h1>{largeWatchDetails.Name}</h1>
 				<p>{largeWatchDetails.Model}</p>
 				<p>{largeWatchDetails.Price}</p>
-				<button>Add to Cart</button>
+				<button onClick={handleClick}>Add to Cart</button>
 				<p>{largeWatchDetails.Dimension}</p>
 				<p>{largeWatchDetails.Movement}</p>
 				<p>{largeWatchDetails["Dial Colour"]}</p>
