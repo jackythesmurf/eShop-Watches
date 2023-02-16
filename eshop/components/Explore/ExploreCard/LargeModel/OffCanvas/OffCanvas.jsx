@@ -23,8 +23,11 @@ function OffCanvas({handleCart, watchImg}) {
 				<Offcanvas.Header closeButton>
 					<Offcanvas.Title>Confirm Your Purchase</Offcanvas.Title>
 				</Offcanvas.Header>
-                <img src={watchImg} alt="" />
-				<Offcanvas.Body>
+				<div className={styles.display}>
+					<img  src={watchImg} alt="" />
+				
+				</div>
+               <Offcanvas.Body>
                     
 					<p>
 						If you like this watch, I bet your will like my other projects !
