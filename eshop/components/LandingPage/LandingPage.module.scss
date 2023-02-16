@@ -1,16 +1,46 @@
-.carousel{
-   // make carousel fit to screen
-    width: 100vw;
-    height: 100vh;
-    // make image fit to screen
-    z-index: 0;
-    img{
-        //make image fit screen similarly
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+// .carousel{
+//    // make carousel fit to screen
+//     width: 100vw;
+//     height: 100vh;
+//     // make image fit to screen
+//     z-index: 0;
+//     img{
+//         //make image fit screen similarly
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
         
-    }
+//     }
 
     
+// }
+
+.container{
+    z-index: 0;
 }
+
+.carousel1{
+    width:100vw;
+    height:100vh;
+    background: url("https://www.bobswatches.com/rolex-blog/wp-content/uploads/2020/10/Screen-Shot-2021-08-13-at-11.24.45-AM.jpg");
+    background-size: cover;
+    z-index: 0;
+}
+.carousel2{
+    width:100vw;
+    height:100vh;
+    background: url("https://www.mensjournal.com/wp-content/uploads/2022/03/LonginesSpiritZuluTimeGMT1.jpg?quality=70&strip=all");
+    background-size: cover;
+    z-index: 0;
+}
+
+
+.carousel3{
+    width:100vw;
+    height:100vh;
+    background: url("https://149357759.v2.pressablecdn.com/wp-content/uploads/2020/06/Longines-Flagship-Heritage-1024x768.jpg");
+    background-size: cover;
+    z-index: 0;
+}
+
+
