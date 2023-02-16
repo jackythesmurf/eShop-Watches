@@ -1,0 +1,37 @@
+.container {
+    margin-top:30px;
+    margin-left:30px;
+	
+    width: 60vw;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    // light blue theme for bckgroud
+    background-color: whitesmoke;
+    // dark blue theme for border
+  
+   
+    // shadow
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	
+    &__imgContainer {
+        
+		max-width: 40vw;
+		height:30vh;
+		&__img {
+			// make imge fit div
+            max-width: 20vw;
+            max-height: 100%;
+            object-fit: cover;
+            
+
+		}
+	}
+    &__details{
+        width:40vw;
+        margin-right: 100px;
+    }
+}

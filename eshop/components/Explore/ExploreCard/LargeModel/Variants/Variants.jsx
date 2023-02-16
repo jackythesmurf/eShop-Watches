@@ -11,9 +11,6 @@ const Variants = ({ largeWatchDetails, watchSortedData }) => {
 			return watch;
 		}
 	});
-	console.log('====================================');
-	console.log(watchVariants);
-	console.log('====================================');
 
 
 	return (

@@ -15,7 +15,7 @@ import NavBar from "../components/NavBar/NavBar";
 import ExplorePage from "../components/Explore/ExplorePage.jsx";
 import ExploreCard from "../components/Explore/ExploreCard/ExploreCard.jsx";
 import ExploreList from "../components/Explore/ExploreList/ExploreList.jsx";
-import Favourites from "../components/Favourites/Favourites.jsx";
+
 import Cart from "../components/Cart/Cart.jsx";
 
 import LargeModel from "../components/Explore/ExploreCard/LargeModel/LargeModel.jsx";
@@ -48,7 +48,7 @@ function App() {
 							<ExploreList watchSortedData={watchSortedData} />
 						}
 					/>
-					<Route path="/favourites" element={<Favourites />} />
+					
 					<Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>} />
 					<Route
 						path="/explore/:style/:model"

@@ -1,37 +1,129 @@
+// .container {
+//     padding-top: 100px;
+// 	display: flex;
+//     //center the details
+//     justify-content: center;
+//     align-items: center;
+//     //center the image
+
+// 	&__details {
+
+// 	}
+
+// }
+// @media (max-width:1100px) {
+// 	.container {
+// 		&__details {
+// 			border-style:solid;
+//             width: 300px;
+// 		}
+// 		&__display {
+//             background-color: black;
+//             &__img{
+
+//                 width: 100px;
+//             }
+
+// 		}
+// 	}
+// }
+
+// .img{
+//     // make image reponsive
+//     width: 100%;
+//     height: auto;
+
+// }
+
 .container {
-    padding-top: 100px;
-	display: flex;
-    //center the details
-    justify-content: center;
-    align-items: center;
-    //center the image
-
-	&__details {
+    min-height: 100vh;
+    background-color: #EFF1F3;
+    @media screen and (min-width: 1150px) {
+        &__display {
+            //center img
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #dae0e3;
+            width: 500px;
+            position: absolute;
+            top: 125px;
+            left: 5%;
+            border-radius: 15px;
+            //create a sublt e box shadow
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    
         
-	}
+        }
+        &__details {
+            width:500px;
+            position: absolute;
+            top: 150px;
+            right: 5%;
+            
+        }
+    }
+	
+    &__banner{
+        position: absolute;
+        top:60px;
+        padding-top:10px;
+        padding-bottom:10px;
+        background-color: #003150;
+        color: rgb(236, 236, 236);
+        min-width: 100vw;
+        text-align: center;
+
+
+    }
+    @media screen and (max-width: 1150px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 125px;
+            background-color: #dae0e3;
+            width: 80vw;
+          
+            border-radius: 15px;
+            //create a sublt e box shadow
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
     
+            
+        }
+        &__details {
+            margin-top: 100px;
+            width: 60vw;
+                  
+        }
+        
+    }
+
+
 }
-@media (max-width:1100px) {
-	.container {
-		&__details {
-			border-style:solid;
-            width: 300px;
-		}
-		&__display {
-            background-color: black;
-            &__img{
-
-                width: 100px;
-            }
-			
-		}
-	}
-}
-
-
-.img{
-    // make image reponsive
-    width: 100%;
-    height: auto;
     
+
+.text{
+    &__highlights{
+        // dark blue highlight
+        color: #004972;
+    }
+}
+.addToCart{
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #003150;
+    color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    // remove default button styling
+    border: none;
+    margin-bottom: 10px;
+}
+.addToCart:hover{
+    background-color: #004972;
+    cursor: pointer;
 }

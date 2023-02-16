@@ -22,7 +22,7 @@ const addToCart = (watch, cart, setCart) => {
 				quantity: 1,
 			});
 		add();
-		setCart(cart.push(watch));
+		setCart(current => [...current, watch])
 	} else {
 		const itemQty = cart[watchIndex].quantity;
 		const increQty = async () => {
@@ -31,6 +31,7 @@ const addToCart = (watch, cart, setCart) => {
 				quantity: itemQty + 1,
 			});
 		};
+		console.log("wathc index EXISTS")
 		increQty();
 		setCart(
 			cart.map((item, index) => {
