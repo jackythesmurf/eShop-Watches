@@ -1,8 +1,4 @@
 # eShop-Watches
 An eCommerce Website that sells Watches
 
-# How to run app
-```
-npm install 
-npm run dev
-```
+Link to deployed site: https://jackythesmurf.github.io/eShop-Watches/
